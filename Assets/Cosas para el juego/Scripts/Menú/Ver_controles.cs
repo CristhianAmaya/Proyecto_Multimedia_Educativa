@@ -26,6 +26,10 @@ public class Ver_controles : MonoBehaviour
                 selecr = false;
             }
         }
+        else if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     // Update is called once per frame

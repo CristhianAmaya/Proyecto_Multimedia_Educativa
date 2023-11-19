@@ -23,6 +23,10 @@ public class Cambio_Escena : MonoBehaviour
         {
             level = "Controls";  // Cambiado: ajustar el nombre de la escena
         }
+        else if (Nivel == 3)
+        {
+            level = "Desition_Scene";  // Cambiado: ajustar el nombre de la escena
+        }
 
         return level;
     }
