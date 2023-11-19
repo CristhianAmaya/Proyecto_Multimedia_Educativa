@@ -6,18 +6,31 @@ using TMPro;
 
 public class Tiempo : MonoBehaviour
 {
-    public int timer = 60; // Cambiado a 60 segundos
+    public int timer; // Cambiado a 180 segundos (3 minutos)
+    private float tiempito;
     public TextMeshPro textoTimer;
 
     // Momento en el que se inició el temporizador
     private float tiempoInicio;
 
+    // Variable para manejar si ya se reprodujo el sonido
+    private bool sonidoReproducido = false;
+
+    // AudioSource para reproducir el sonido
+    private AudioSource audioSource;
+    public AudioClip sonidoFin;
+
     void Start()
     {
         tiempoInicio = Time.realtimeSinceStartup;
+        tiempito = timer;
+        // Asegúrate de tener el componente AudioSource adjunto al objeto o asigna uno desde el Inspector
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         float tiempoTranscurrido = Time.realtimeSinceStartup - tiempoInicio;
@@ -25,12 +38,17 @@ public class Tiempo : MonoBehaviour
         if (timer > 0)
         {
             // Calcula el tiempo restante en función del tiempo transcurrido
-            timer = Mathf.Max(0, Mathf.RoundToInt(60 - tiempoTranscurrido));
+            timer = Mathf.Max(0, Mathf.RoundToInt(tiempito - tiempoTranscurrido)); // Cambiado a 180 segundos
             ActualizarTextoTimer();
         }
         else
         {
             timer = 0;
+            if (!sonidoReproducido)
+            {
+                ReproducirSonidoFin();
+                sonidoReproducido = true;
+            }
             DetenerTemporizador();
         }
     }
@@ -46,4 +64,13 @@ public class Tiempo : MonoBehaviour
     {
         Debug.Log("El temporizador ha llegado a cero. Deteniendo el temporizador.");
     }
+
+    void ReproducirSonidoFin()
+    {
+        if (audioSource != null && sonidoFin != null)
+        {
+            audioSource.PlayOneShot(sonidoFin);
+        }
+    }
 }
+
