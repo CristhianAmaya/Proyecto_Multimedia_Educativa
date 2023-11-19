@@ -2,12 +2,22 @@ using UnityEngine;
 
 public class AdjuntarAHamaca : MonoBehaviour
 {
+    bool attachedToHammock = false;
+
     void Update()
     {
         // Verifica si se presionó la tecla "T"
         if (Input.GetKeyDown(KeyCode.T))
         {
-            AttachPlayersToHammock();
+            // Alterna entre adjuntar y desadjuntar
+            if (attachedToHammock)
+            {
+                DetachPlayersFromHammock();
+            }
+            else
+            {
+                AttachPlayersToHammock();
+            }
         }
     }
 
@@ -42,6 +52,7 @@ public class AdjuntarAHamaca : MonoBehaviour
                 }
 
                 Debug.Log("Los objetos Player ahora son hijos de la Hamaca, tienen la misma posición y la rotación en X es -90 grados.");
+                attachedToHammock = true;
             }
             else
             {
@@ -52,5 +63,25 @@ public class AdjuntarAHamaca : MonoBehaviour
         {
             Debug.LogError("No se encontró ningún objeto con la etiqueta 'Hamaca'.");
         }
+    }
+
+    void DetachPlayersFromHammock()
+    {
+        // Busca todos los objetos con la etiqueta "Player"
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        // Desvincula a cada jugador de su padre
+        foreach (GameObject player in players)
+        {
+            player.transform.parent = null;
+
+            // Restablece las transformaciones del jugador a cero
+            player.transform.position = Vector3.zero;
+            player.transform.rotation = Quaternion.identity;
+            player.transform.localScale = Vector3.one;
+        }
+
+        Debug.Log("Los objetos Player ya no son hijos de la Hamaca y se han restablecido las transformaciones.");
+        attachedToHammock = false;
     }
 }

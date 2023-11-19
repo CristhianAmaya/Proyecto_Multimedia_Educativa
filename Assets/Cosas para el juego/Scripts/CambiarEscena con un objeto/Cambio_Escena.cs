@@ -21,11 +21,16 @@ public class Cambio_Escena : MonoBehaviour
         }
         else if (Nivel == 2)
         {
-            level = "Controls";  // Cambiado: ajustar el nombre de la escena
+            level = "MundoHamaca";  // Cambiado: ajustar el nombre de la escena
         }
         else if (Nivel == 3)
         {
             level = "Desition_Scene";  // Cambiado: ajustar el nombre de la escena
+        }
+
+        else if (Nivel == 4)
+        {
+            level = "Ir_al_cine";  // Cambiado: ajustar el nombre de la escena
         }
 
         return level;

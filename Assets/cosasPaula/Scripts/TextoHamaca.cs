@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GestorTextoInfo : MonoBehaviour
+public class TextoHamaca : MonoBehaviour
 {
     public GameObject textoPrefab;
     private GameObject textoInstanciado;

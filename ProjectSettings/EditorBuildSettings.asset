@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Basket_scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Ir_al_cine.unity
+    guid: fc76589307a77f847837eebf52fd6356
+  - enabled: 1
+    path: Assets/Scenes/MundoHamaca.unity
+    guid: 0fc0a921561a81c4b9600db3d0dbbb3e
   m_configObjects: {}
