@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MundoHamaca.unity
     guid: 0fc0a921561a81c4b9600db3d0dbbb3e
+  - enabled: 1
+    path: "Assets/Scenes/lecciones/Lecci\xF3n2.unity"
+    guid: 5163c8905c8816c4e9098e13252fefe9
+  - enabled: 1
+    path: "Assets/Scenes/lecciones/Lecci\xF3n3.unity"
+    guid: afaf74d7ccd928443a01e26f081cbaf0
   m_configObjects: {}

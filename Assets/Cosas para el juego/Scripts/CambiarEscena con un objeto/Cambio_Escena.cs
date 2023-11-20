@@ -32,6 +32,15 @@ public class Cambio_Escena : MonoBehaviour
         {
             level = "Ir_al_cine";  // Cambiado: ajustar el nombre de la escena
         }
+        else if (Nivel == 5)
+        {
+            level = "Lección2";  // Cambiado: ajustar el nombre de la escena
+        }
+        else if (Nivel == 6)
+        {
+            level = "Lección3";  // Cambiado: ajustar el nombre de la escena
+        }
+
 
         return level;
     }
